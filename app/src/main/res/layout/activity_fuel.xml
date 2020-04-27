@@ -9,26 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:id="@+id/app_logo"
             android:src="@drawable/ic"
             android:cropToPadding="true"
-            android:paddingBottom="20dp"
+            android:paddingBottom="10dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"/>
 
-        <EditText
-            android:id="@+id/vehicleReg"
+        <Spinner
+            android:id="@+id/veh_Spinner"
+            android:layout_margin="25dp"
+            android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="textPersonName"
-            android:hint="vehicle reg"/>
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/fuelType"
@@ -37,6 +36,14 @@
             android:layout_margin="10dp"
             android:inputType="textPersonName"
             android:hint="type"/>
+
+        <EditText
+            android:id="@+id/fuelPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="textPersonName"
+            android:hint="Price"/>
 
         <EditText
             android:id="@+id/fuelDate"
@@ -52,7 +59,7 @@
             android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="amount"/>
+            android:hint="amount liters"/>
 
 
         <Button

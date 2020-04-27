@@ -62,8 +62,6 @@ public class DomesticActivity extends AppCompatActivity {
 
         loadingBar = new ProgressDialog(this);
 
-        domestic = new Domestic();
-
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +78,6 @@ public class DomesticActivity extends AppCompatActivity {
         Light = light.getText().toString().trim();
         Water = water.getText().toString().trim();
         Waste = waste.getText().toString().trim();
-        TotalDomestic = totalDomestic.getText().toString().trim();
 
 
         if (TextUtils.isEmpty(Heat))
@@ -128,6 +125,11 @@ public class DomesticActivity extends AppCompatActivity {
         SaveDomesticInfoToDatabase();
     }
 
+    public void domesticCalculator()
+    {
+
+    }
+
 
 
     private void SaveDomesticInfoToDatabase()
@@ -139,7 +141,6 @@ public class DomesticActivity extends AppCompatActivity {
         domMap.put("time", saveCurrentTime);
         domMap.put("Heat", Heat);
         domMap.put("Light", Light);
-        domMap.put("Total Domestic", TotalDomestic);
 
         DomesticReff.child(DomesticRandomKey).updateChildren(domMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

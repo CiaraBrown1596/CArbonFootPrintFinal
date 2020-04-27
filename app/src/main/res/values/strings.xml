@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CarbonFootPrintTrackerFinal</string>
+    <string name="result_text_default">Please focus camera on QR COde</string>
+
+</resources>

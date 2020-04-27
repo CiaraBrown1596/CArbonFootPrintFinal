@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.carbonfootprinttrackerfinal.EmissionsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/totalemissions"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="TotalEmissions" />
+
+        <EditText
+            android:id="@+id/totalFuel"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="TotalFuel"/>
+
+        <EditText
+            android:id="@+id/totalVehicles"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="TotalVehicles"/>
+
+        <EditText
+            android:id="@+id/totalFlights"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="TotalFlights"/>
+
+        <EditText
+            android:id="@+id/totalDomestic"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="TotalDomestic"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttons"
+            android:text="Submit" />
+
+    </LinearLayout>
+
+</RelativeLayout>

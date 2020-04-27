@@ -9,8 +9,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="20dp"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/app_logo"
+            android:src="@drawable/ic"
+            android:cropToPadding="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
+
 
         <EditText
             android:id="@+id/ID"
@@ -53,29 +63,7 @@
             android:hint="Number of Flights"
             android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/TotalEmissions"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Total Emissions"
-            android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/TotalVehicles"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Total Vehicles"
-            android:inputType="textPersonName"/>
-
-        <EditText
-            android:id="@+id/TotalDomestic"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Total Domestic"
-            android:inputType="textPersonName"/>
 
         <Button
             android:id="@+id/btnSave"

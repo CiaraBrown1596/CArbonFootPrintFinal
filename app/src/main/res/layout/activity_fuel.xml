@@ -12,6 +12,16 @@
         android:padding="20dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/app_logo"
+            android:src="@drawable/ic"
+            android:cropToPadding="true"
+            android:paddingBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
+
         <EditText
             android:id="@+id/vehicleReg"
             android:layout_width="match_parent"

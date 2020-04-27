@@ -281,7 +281,7 @@ public class FlightActivity extends AppCompatActivity {
         loadingBar.setMessage("Dear User, please wait while we are adding the new flight.");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
-        flightRandomKey = saveCurrentDate + saveCurrentTime;
+
 
         Calendar calendar = Calendar.getInstance();
 
@@ -290,6 +290,8 @@ public class FlightActivity extends AppCompatActivity {
 
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentTime.format(calendar.getTime());
+
+        flightRandomKey = saveCurrentDate + saveCurrentTime;
 
         SaveFlightInfoToDatabase();
     }
@@ -305,6 +307,7 @@ public class FlightActivity extends AppCompatActivity {
         flightMap.put("Aircraft", FlightAircraft);
         flightMap.put("Distance", FlightDistance);
         flightMap.put("Seat", FlightSeat);
+        flightMap.put("Flight Emissions",totalEmissions);
 
         FlightReff.child(flightRandomKey).updateChildren(flightMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

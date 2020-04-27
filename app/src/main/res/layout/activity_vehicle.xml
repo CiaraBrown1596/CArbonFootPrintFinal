@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Type"
+            android:hint="Vehicle Description"
             android:inputType="textPersonName" />
 
         <CheckBox

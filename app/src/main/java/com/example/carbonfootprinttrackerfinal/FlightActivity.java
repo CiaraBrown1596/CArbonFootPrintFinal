@@ -4,6 +4,7 @@ package com.example.carbonfootprinttrackerfinal;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -72,6 +73,7 @@ public class FlightActivity extends AppCompatActivity {
         Spinner mySpinner2 = findViewById(R.id.spinner2);
 
         Spinner mySpinner3 =  findViewById(R.id.spinner3);
+
 
         result = findViewById(R.id.PassengerC02);
         loadingBar = new ProgressDialog(this);

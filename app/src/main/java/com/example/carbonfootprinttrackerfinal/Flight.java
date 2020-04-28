@@ -13,15 +13,16 @@ public class Flight{
     private String date;
     private String time;
     private String emissionPerPassenger;
+    private String totalFlightEmissions;
     
     public Flight(){}
 
 
-    public Flight(String id, String ID, Double type, Double aircraftType, String aClass, String emissionPerPassenger){
+    public Flight(String id, String ID, Double type, Double aircraftType, String aClass, String emissionPerPassenger,String totalFlightEmissions){
 
     }
 
-    public Flight(String flightID, String departure, String destination, String ticket, String date, String time, String emissionPerPassenger){
+    public Flight(String flightID, String departure, String destination, String ticket, String date, String time, String emissionPerPassenger,String totalFlightEmissions){
         this.flightID = flightID;
         this.departure = departure;
         this.destination = destination;
@@ -29,6 +30,7 @@ public class Flight{
         this.date = date;
         this.time = time;
         this.emissionPerPassenger = emissionPerPassenger;
+        this.totalFlightEmissions = totalFlightEmissions;
     }
 
     public Flight(String id, String id1, Double type, Double aircraftType, String aClass, Double emissions) {
@@ -88,6 +90,15 @@ public class Flight{
 
     public void setEmissionPerPassenger(String emissionPerPassenger) {
         this.emissionPerPassenger = emissionPerPassenger;
+    }
+
+    public String getTotalFlightEmissions() {
+        return totalFlightEmissions;
+    }
+
+    public Flight setTotalFlightEmissions(String totalFlightEmissions) {
+        this.totalFlightEmissions = totalFlightEmissions;
+        return this;
     }
 }
 

@@ -3,6 +3,7 @@ package com.example.carbonfootprinttrackerfinal;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -10,6 +11,7 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,8 +59,10 @@ public class QrCodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
         cameraPreview = (SurfaceView)findViewById(R.id.cameraPreview);
-        txtResult = (TextView)findViewById(R.id.txtResult);
+        txtResult = (TextView)findViewById(R.id.btn_scan);
 
         logoQr = findViewById(R.id.app_logoQr);
         logoQr.setOnClickListener(new View.OnClickListener() {

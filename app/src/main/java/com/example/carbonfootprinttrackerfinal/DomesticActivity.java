@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,18 +28,25 @@ import java.util.HashMap;
 
 public class DomesticActivity extends AppCompatActivity {
 
-    EditText totalDomestic, light, heat, waste;
-    Button submit;
+    EditText  light, heat;
+    Button submit, btnCalculateLight;
+    TextView totalLightReading,totalHeatReading;
 
     private String saveCurrentTime;
     private String saveCurrentDate;
+    private String textResultLight;
+    private String textResultHeat;
 
     private ImageView domLogo;
+    private double resultLight;
+    private double resultHeat;
 
-    private String Light;
+    private String LightEmissions;
     private String Heat;
-    private String Waste;
     private String TotalDomestic;
+
+
+    private EditText CurrentReading,PreviousReading;
 
     private DatabaseReference DomesticReff;
     private FirebaseAuth myFirebaseAuth;
@@ -55,11 +63,15 @@ public class DomesticActivity extends AppCompatActivity {
         myFirebaseAuth = FirebaseAuth.getInstance();
         DomesticReff = FirebaseDatabase.getInstance().getReference("Domestic");
 
-        totalDomestic = (EditText)findViewById(R.id.Domestic);
-        light = (EditText)findViewById(R.id.Light);
+        totalLightReading = (TextView) findViewById(R.id.TotalLight);
+        totalHeatReading = (TextView)findViewById(R.id.totalHeat);
+
+        CurrentReading = (EditText)findViewById(R.id.Light1);
+        PreviousReading = findViewById(R.id.Light2);
         heat = (EditText)findViewById(R.id.Heat);
-        waste = (EditText)findViewById(R.id.Waste);
         submit = (Button) findViewById(R.id.button2);
+        btnCalculateLight = (Button) findViewById(R.id.btncalculateLight);
+
         domLogo = findViewById(R.id.app_logoDom);
 
         domLogo.setOnClickListener(new View.OnClickListener() {
@@ -81,34 +93,35 @@ public class DomesticActivity extends AppCompatActivity {
                 ValidateDomesticData();
             }
         });
+
+        btnCalculateLight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                domesticCalculator();
+            }
+        });
     }
 
 
     private void ValidateDomesticData()
     {
-        Heat = heat.getText().toString().trim();
-        Light = light.getText().toString().trim();
-        Waste = waste.getText().toString().trim();
+        LightEmissions = String.valueOf(Double.parseDouble(String.valueOf(textResultLight)));
+        Heat = String.valueOf(Double.parseDouble(String.valueOf(textResultHeat)));
 
 
         if (TextUtils.isEmpty(Heat))
         {
             Toast.makeText(this, "Please write heat ...", Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(Light))
+        else if (TextUtils.isEmpty(LightEmissions))
         {
             Toast.makeText(this, "Please enter light...", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(Waste))
-        {
-            Toast.makeText(this, "Please enter Waste...", Toast.LENGTH_SHORT).show();
         }
         else
         {
             StoreDomesticInformation();
         }
     }
-
 
 
     private void StoreDomesticInformation()
@@ -134,6 +147,24 @@ public class DomesticActivity extends AppCompatActivity {
 
     public void domesticCalculator()
     {
+        double lightCurrent = Double.parseDouble(CurrentReading.getText().toString());
+        double lightPrevious = Double.parseDouble(PreviousReading.getText().toString());
+        double heatReading = Double.parseDouble(heat.getText().toString());
+        double resultLight, resultHeat, thisYearReading;
+
+        thisYearReading = lightCurrent - lightPrevious;
+
+        resultLight = thisYearReading * 0.453592;
+        textResultLight = String.valueOf(resultLight);
+        totalLightReading.setText(textResultLight);
+
+
+        resultHeat = heatReading * 0.05443108;
+        textResultHeat = String.valueOf(resultHeat);
+        totalHeatReading.setText(textResultHeat);
+
+
+        TotalDomestic = String.valueOf(resultHeat + resultLight);
 
     }
 
@@ -142,11 +173,11 @@ public class DomesticActivity extends AppCompatActivity {
     private void SaveDomesticInfoToDatabase()
     {
         HashMap<String, Object> domMap = new HashMap<>();
-        domMap.put("Waste", Waste);
         domMap.put("date", saveCurrentDate);
         domMap.put("time", saveCurrentTime);
-        domMap.put("Heat", Heat);
-        domMap.put("Light", Light);
+        domMap.put("Heat", textResultHeat);
+        domMap.put("Light", textResultLight);
+        domMap.put("Total Domestic", TotalDomestic);
 
         DomesticReff.child(DomesticRandomKey).updateChildren(domMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

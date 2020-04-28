@@ -32,6 +32,7 @@ public class VehicleActivity extends AppCompatActivity {
     EditText type, reg, litres;
     Button Enter, calculate;
     CheckBox fuelType;
+    private double result;
     private String saveCurrentTime;
     private String saveCurrentDate;
 
@@ -95,7 +96,6 @@ public class VehicleActivity extends AppCompatActivity {
 
     public void calculateEmissions(){
         String s1 = litres.getText().toString();
-        double result;
 
         if(fuelType.isChecked()){
             result = Integer.parseInt(s1) * 2.31 ;
@@ -105,6 +105,7 @@ public class VehicleActivity extends AppCompatActivity {
         }
         TextView vehicleEmissions = findViewById(R.id.vehicleEmissions);
         vehicleEmissions.setText(String.valueOf(result));
+
     }
 
     private void ValidateVehicleData()
@@ -112,6 +113,8 @@ public class VehicleActivity extends AppCompatActivity {
         VehiclesReg = reg.getText().toString().trim();
         VehiclesLiters = litres.getText().toString().trim();
         VehiclesDescription = type.getText().toString().trim();
+        VehiclesEmissions = String.valueOf(vehicleEmissions);
+        VehiclesEmissions = String.valueOf(Double.parseDouble(String.valueOf(result)));
 
         if (TextUtils.isEmpty(VehiclesReg))
         {

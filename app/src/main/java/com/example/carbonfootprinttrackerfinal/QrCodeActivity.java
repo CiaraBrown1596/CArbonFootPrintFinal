@@ -62,7 +62,7 @@ public class QrCodeActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
         cameraPreview = (SurfaceView)findViewById(R.id.cameraPreview);
-        txtResult = (TextView)findViewById(R.id.btn_scan);
+        txtResult = (TextView)findViewById(R.id.txtResult);
 
         logoQr = findViewById(R.id.app_logoQr);
         logoQr.setOnClickListener(new View.OnClickListener() {

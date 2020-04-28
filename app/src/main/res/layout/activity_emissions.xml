@@ -11,6 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/app_logoEmis"
+            android:src="@drawable/ic"
+            android:cropToPadding="true"
+            android:paddingBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"/>
+
         <EditText
             android:id="@+id/totalemissions"
             android:layout_width="match_parent"

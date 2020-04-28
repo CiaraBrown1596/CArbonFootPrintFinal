@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class FuelActivity extends AppCompatActivity {
         private String FuelAmout;
         private String FuelPrice;
         private String VehicleUsed;
+        private ImageView logoFuel;
 
         private String saveCurrentTime;
         private String saveCurrentDate;
@@ -72,6 +74,17 @@ public class FuelActivity extends AppCompatActivity {
                 type = (EditText) findViewById(R.id.fuelType);
                 date = (EditText) findViewById(R.id.fuelDate);
                 price = findViewById(R.id.fuelPrice);
+
+                logoFuel = findViewById(R.id.app_logofuel);
+                logoFuel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                Intent intent = new Intent(FuelActivity.this, HomeActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+
+                        }
+                });
 
                 Submit = (Button) findViewById(R.id.button4);
                 loadingBar = new ProgressDialog(this);

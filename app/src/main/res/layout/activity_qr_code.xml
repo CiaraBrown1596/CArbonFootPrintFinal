@@ -8,6 +8,17 @@
     tools:context="com.example.carbonfootprinttrackerfinal.QrCodeActivity">
 
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/app_logoQr"
+        android:src="@drawable/ic"
+        android:cropToPadding="true"
+        android:paddingBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+
     <SurfaceView
         android:id="@+id/cameraPreview"
         android:layout_centerInParent="true"

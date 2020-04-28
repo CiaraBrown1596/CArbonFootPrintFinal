@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:id="@+id/app_logo"
+            android:id="@+id/app_logoDom"
             android:src="@drawable/ic"
             android:cropToPadding="true"
             android:paddingBottom="10dp"
@@ -46,13 +46,6 @@
             android:hint="Heat"
             android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/Water"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Water"
-            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/Waste"

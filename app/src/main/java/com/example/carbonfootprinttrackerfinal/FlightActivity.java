@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class FlightActivity extends AppCompatActivity {
     private  String seatClass;
     private  Double totalEmissions;
     private TextView result;
+    private ImageView logoFlight;
     EditText flightID;
     Button btnSubmit, btnCalculate;
     private DatabaseReference FlightReff;
@@ -73,6 +75,16 @@ public class FlightActivity extends AppCompatActivity {
 
         result = findViewById(R.id.PassengerC02);
         loadingBar = new ProgressDialog(this);
+        logoFlight = findViewById(R.id.app_logoflight);
+        logoFlight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FlightActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 
 
         btnSubmit = findViewById(R.id.btnsubmit);

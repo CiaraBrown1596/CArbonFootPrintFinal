@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,8 @@ public class VehicleActivity extends AppCompatActivity {
     private String VehiclesEmissions;
     private String vehicleRandomKey;
 
+    private ImageView logoVeh;
+
     private DatabaseReference VehicleReff;
     private FirebaseAuth myFirebaseAuth;
     private FirebaseDatabase myFirebaseDatabase;
@@ -60,6 +63,17 @@ public class VehicleActivity extends AppCompatActivity {
         fuelType = findViewById(R.id.checkBox);
         Enter = findViewById(R.id.button5);
         calculate = findViewById(R.id.button6);
+
+        logoVeh = findViewById(R.id.app_logoVeh);
+        logoVeh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VehicleActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 
         loadingBar = new ProgressDialog(this);
 

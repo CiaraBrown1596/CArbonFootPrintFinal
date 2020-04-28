@@ -2,12 +2,15 @@ package com.example.carbonfootprinttrackerfinal;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,6 +26,7 @@ import java.io.IOException;
 
 public class QrCodeActivity extends AppCompatActivity {
 
+    private ImageView logoQr;
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
@@ -55,6 +59,17 @@ public class QrCodeActivity extends AppCompatActivity {
 
         cameraPreview = (SurfaceView)findViewById(R.id.cameraPreview);
         txtResult = (TextView)findViewById(R.id.txtResult);
+
+        logoQr = findViewById(R.id.app_logoQr);
+        logoQr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QrCodeActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)

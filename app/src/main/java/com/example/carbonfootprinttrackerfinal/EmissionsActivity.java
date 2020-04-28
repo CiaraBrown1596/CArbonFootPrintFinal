@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class EmissionsActivity extends AppCompatActivity {
 
+    private ImageView logoEM;
     EditText TotalEmissions, fuel, flights, vehicles, domestic;
     Button Submit;
     private DatabaseReference reff;
@@ -38,6 +40,17 @@ public class EmissionsActivity extends AppCompatActivity {
         vehicles = (EditText) findViewById(R.id.totalVehicles);
         domestic = (EditText) findViewById(R.id.totalDomestic);
         Submit = (Button) findViewById(R.id.button3);
+
+        logoEM = findViewById(R.id.app_logoEmis);
+        logoEM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EmissionsActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override

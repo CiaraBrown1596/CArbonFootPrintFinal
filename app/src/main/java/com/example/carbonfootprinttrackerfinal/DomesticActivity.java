@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,15 +27,16 @@ import java.util.HashMap;
 
 public class DomesticActivity extends AppCompatActivity {
 
-    EditText totalDomestic, light, heat, water, waste;
+    EditText totalDomestic, light, heat, waste;
     Button submit;
 
     private String saveCurrentTime;
     private String saveCurrentDate;
 
+    private ImageView domLogo;
+
     private String Light;
     private String Heat;
-    private String Water;
     private String Waste;
     private String TotalDomestic;
 
@@ -56,9 +58,19 @@ public class DomesticActivity extends AppCompatActivity {
         totalDomestic = (EditText)findViewById(R.id.Domestic);
         light = (EditText)findViewById(R.id.Light);
         heat = (EditText)findViewById(R.id.Heat);
-        water =(EditText)findViewById(R.id.Water);
         waste = (EditText)findViewById(R.id.Waste);
         submit = (Button) findViewById(R.id.button2);
+        domLogo = findViewById(R.id.app_logoDom);
+
+        domLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DomesticActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 
         loadingBar = new ProgressDialog(this);
 
@@ -76,7 +88,6 @@ public class DomesticActivity extends AppCompatActivity {
     {
         Heat = heat.getText().toString().trim();
         Light = light.getText().toString().trim();
-        Water = water.getText().toString().trim();
         Waste = waste.getText().toString().trim();
 
 
@@ -87,10 +98,6 @@ public class DomesticActivity extends AppCompatActivity {
         else if (TextUtils.isEmpty(Light))
         {
             Toast.makeText(this, "Please enter light...", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(Water))
-        {
-            Toast.makeText(this, "Please enter water...", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(Waste))
         {
@@ -135,7 +142,6 @@ public class DomesticActivity extends AppCompatActivity {
     private void SaveDomesticInfoToDatabase()
     {
         HashMap<String, Object> domMap = new HashMap<>();
-        domMap.put("Water",Water);
         domMap.put("Waste", Waste);
         domMap.put("date", saveCurrentDate);
         domMap.put("time", saveCurrentTime);

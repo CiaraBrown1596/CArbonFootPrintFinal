@@ -1,56 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.carbonfootprinttrackerfinal.HomeActivity">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@drawable/ic"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="The Foot Print Tracker!"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold|italic" />
 
     <LinearLayout
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical"
+        android:id="@+id/Linear1_CategoryLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:id="@+id/app_logo"
-            android:src="@drawable/ic"
-            android:cropToPadding="true"
-            android:paddingBottom="20dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="User Profile!"
-            android:id="@+id/textViewUserEmail"
-            android:layout_gravity="center_horizontal"/>
+            android:id="@+id/AddUser"
+            android:tooltipText="Add User"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_user"/>
 
 
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Select an Option!"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_margin="25dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
+        <ImageView
+            android:id="@+id/AddFlihght"
+            android:layout_width="150dp"
+            android:tooltipText="Add Flight"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_flight"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Linear1_CategoryLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Linear1_CategoryLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/AddVehicles"
+            android:tooltipText="Add Vehicles"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_vehicles"/>
+
+
+        <ImageView
+            android:id="@+id/AddDomestic"
+            android:layout_width="150dp"
+            android:tooltipText="Add Domestic"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_domestic"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/Linear1_CategoryLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Linear1_CategoryLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/AddEmissions"
+            android:tooltipText="Add Emissions"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_emissions"/>
+
+
+        <ImageView
+            android:id="@+id/AddQR"
+            android:layout_width="150dp"
+            android:tooltipText="Add QRCode"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_qrcode"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Linear1_CategoryLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Linear1_CategoryLayout3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/Addlogout"
+            android:tooltipText="Log Out/Close"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_logout"/>
+
+
+        <ImageView
+            android:id="@+id/AddFuel"
+            android:layout_width="150dp"
+            android:tooltipText="Add Fuel"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_fuel"/>
+
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

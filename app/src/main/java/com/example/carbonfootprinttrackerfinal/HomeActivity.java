@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,10 +23,9 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private ImageView addflight, adduser, adddomestic, addfuel, addlogout, addemissions, addvehicle, addqrCode;
     private FirebaseAuth myFirebaseAuth;
     private TextView UserEmail;
-    private Button buttonLogout;
-    private Button begin, Dom, Emm, emp, veh, fly, fuel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,83 +41,85 @@ public class HomeActivity extends AppCompatActivity {
 
         FirebaseUser user = myFirebaseAuth.getCurrentUser();
 
-        UserEmail = findViewById(R.id.textViewUserEmail);
+        addflight = findViewById(R.id.AddFlihght);
+        adduser = findViewById(R.id.AddUser);
+        adddomestic = findViewById(R.id.AddDomestic);
+        addemissions = findViewById(R.id.AddEmissions);
+        addvehicle = findViewById(R.id.AddVehicles);
+        addqrCode = findViewById(R.id.AddQR);
+        addfuel = findViewById(R.id.AddFuel);
+        addlogout = findViewById(R.id.Addlogout);
 
-        UserEmail.setText("Welcome " + user.getEmail());
-        Spinner mySpinner = findViewById(R.id.spinner);
-
-        List<String> options = new ArrayList<>();
-        options.add(0, "Select an option to start..");
-        options.add("User");
-        options.add("Employee");
-        options.add("Flight");
-        options.add("Fuel");
-        options.add("Domestic");
-        options.add("Vehicles");
-        options.add("QR Code Scanner");
-        options.add("Emissions");
-        options.add("Log Out");
-
-        ArrayAdapter<String> dataAdapter;
-        dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, options);
-
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        mySpinner.setAdapter(dataAdapter);
-
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        addlogout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).equals("Choose a Day")) {
-                    //do nothing
-                } else {
-                    //on select a spinner
-                    String item = parent.getItemAtPosition(position).toString();
-
-                    Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-                    if (parent.getItemAtPosition(position).equals("User")) {
-                        Intent intent = new Intent(HomeActivity.this, UserActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("Flight")) {
-                        Intent intent = new Intent(HomeActivity.this, FlightActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("Fuel")) {
-                        Intent intent = new Intent(HomeActivity.this, FuelActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("Domestic")) {
-                        Intent intent = new Intent(HomeActivity.this, DomesticActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("Vehicles")) {
-                        Intent intent = new Intent(HomeActivity.this, VehicleActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("QR Code Scanner")) {
-                        Intent intent = new Intent(HomeActivity.this, QrCodeActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("Log Out")) {
-                        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-                        startActivity(intent);
-                    }
-                    if (parent.getItemAtPosition(position).equals("Emissions")) {
-                        Intent intent = new Intent(HomeActivity.this, EmissionsActivity.class);
-                        startActivity(intent);
-                    }
-                }
+            public void onClick(View v) {
+                finish();
             }
-
+        });
+        addfuel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, FuelActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
 
+            }
+        });
+        addqrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, QrCodeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+        addvehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, VehicleActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+        adddomestic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, DomesticActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+        adduser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, UserActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+        addflight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, FlightActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
+        addemissions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, EmissionsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
 
     }
-
 }
 
 

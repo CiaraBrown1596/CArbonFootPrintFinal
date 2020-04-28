@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,8 @@ public class UserActivity extends AppCompatActivity{
     private Button btnSubmit;
     private String saveCurrentTime;
     private String saveCurrentDate;
+
+    private ImageView logoUser;
 
     private String UserID;
     private String UserFirstName;
@@ -58,6 +61,17 @@ public class UserActivity extends AppCompatActivity{
         surname = (EditText) findViewById(R.id.Surname);
         numEmployees = (EditText) findViewById(R.id.employees);
         numFlights = (EditText) findViewById(R.id.numFlights);
+
+        logoUser = findViewById(R.id.app_logoUser);
+        logoUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 
         loadingBar = new ProgressDialog(this);
 

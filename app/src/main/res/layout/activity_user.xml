@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:id="@+id/app_logo"
+            android:id="@+id/app_logoUser"
             android:src="@drawable/ic"
             android:cropToPadding="true"
             android:layout_centerHorizontal="true"

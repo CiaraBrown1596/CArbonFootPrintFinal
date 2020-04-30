@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -48,7 +50,7 @@ public class FuelActivity extends AppCompatActivity {
         private String VehicleReg;
 
         private Spinner vehicleSpinner;
-        private DatabaseReference FuelReff, databaseReff;
+        private DatabaseReference FuelReff, VehDatabaseReff,DomDataReff,FlyDataReff;
         private FirebaseAuth myFirebaseAuth;
         private FirebaseDatabase myFirebaseDatabase;
         ValueEventListener listener;
@@ -66,7 +68,10 @@ public class FuelActivity extends AppCompatActivity {
                 myFirebaseAuth = FirebaseAuth.getInstance();
                 FuelReff = FirebaseDatabase.getInstance().getReference("Fuel");
 
-                databaseReff = FirebaseDatabase.getInstance().getReference("Vehicles");
+                VehDatabaseReff = FirebaseDatabase.getInstance().getReference("Vehicles");
+                DomDataReff = FirebaseDatabase.getInstance().getReference("Domestic");
+                FlyDataReff = FirebaseDatabase.getInstance().getReference("FLights");
+
 
                 vehicleSpinner = findViewById(R.id.veh_Spinner);
 
@@ -103,8 +108,8 @@ public class FuelActivity extends AppCompatActivity {
 
                 vehicleSpinner.setAdapter(adapter);
                 retrieveData();
-
         }
+
 
         private void ValidateFuelData()
         {
@@ -192,7 +197,8 @@ public class FuelActivity extends AppCompatActivity {
 
         public void retrieveData()
         {
-                listener = databaseReff.addValueEventListener(new ValueEventListener() {
+
+                listener = VehDatabaseReff.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                         {
@@ -200,6 +206,7 @@ public class FuelActivity extends AppCompatActivity {
                                 {
                                         VehicleReg = item.child("Vehicle Reg").getValue(String.class);
                                         spinnerDataList.add(VehicleReg);
+                                        item.getRef().removeValue();
                                 }
                                 adapter.notifyDataSetChanged();
 
@@ -212,6 +219,7 @@ public class FuelActivity extends AppCompatActivity {
                 });
 
         }
+
 
 }
 

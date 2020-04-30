@@ -26,11 +26,12 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-public class QrCodeActivity extends AppCompatActivity {
+public class QrCodeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView logoQr;
     SurfaceView cameraPreview;
     TextView txtResult;
+    private TextView saveImage;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
@@ -63,6 +64,9 @@ public class QrCodeActivity extends AppCompatActivity {
 
         cameraPreview = (SurfaceView)findViewById(R.id.cameraPreview);
         txtResult = (TextView)findViewById(R.id.txtResult);
+        saveImage = findViewById(R.id.saveImage);
+
+        saveImage.setOnClickListener((View.OnClickListener) this);
 
         logoQr = findViewById(R.id.app_logoQr);
         logoQr.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +137,12 @@ public class QrCodeActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void onClick(View view) {
+        if (view == saveImage){
+            //will open save image activity
+            startActivity(new Intent(this,SaveBarcode.class));
+        }
     }
 }
 

@@ -36,7 +36,7 @@ public class SaveBarcode extends AppCompatActivity
     private String  Description, Pname, saveCurrentDate, saveCurrentTime;
     private Button AddNewProductButton;
     private ImageView InputProductImage;
-    private TextView saveImage;
+
     private EditText InputProductName, InputProductDescription;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
@@ -64,10 +64,10 @@ public class SaveBarcode extends AppCompatActivity
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);
-        saveImage = findViewById(R.id.saveImage);
+
         loadingBar = new ProgressDialog(this);
 
-        saveImage.setOnClickListener((View.OnClickListener) this);
+
 
 
         InputProductImage.setOnClickListener(new View.OnClickListener() {
@@ -238,12 +238,5 @@ public class SaveBarcode extends AppCompatActivity
                         }
                     }
                 });
-    }
-
-    public void onClick(View view) {
-        if (view == saveImage){
-            //will open save image activity
-            startActivity(new Intent(this,LoginActivity.class));
-        }
     }
 }

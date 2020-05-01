@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -47,7 +49,7 @@ public class EmissionsActivity extends AppCompatActivity {
     private TextView totalEmissions;
     private String saveCurrentTime;
     private String saveCurrentDate;
-    EditText fuel, flights, vehicles, domestic;
+    EditText flights, vehicles, domestic;
     Button Submit, Show;
     private DatabaseReference EmissionsReff;
 

@@ -36,7 +36,7 @@ import java.util.HashMap;
 public class FuelActivity extends AppCompatActivity {
 
         EditText reg, date, amount, type,price;
-        Button Submit;
+        Button Submit, remove;
 
         private String FuelType;
         private String FuelDate;
@@ -79,6 +79,7 @@ public class FuelActivity extends AppCompatActivity {
                 type = (EditText) findViewById(R.id.fuelType);
                 date = (EditText) findViewById(R.id.fuelDate);
                 price = findViewById(R.id.fuelPrice);
+                remove = (Button)findViewById(R.id.button5);
 
                 logoFuel = findViewById(R.id.app_logofuel);
                 logoFuel.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +93,7 @@ public class FuelActivity extends AppCompatActivity {
                 });
 
                 Submit = (Button) findViewById(R.id.button4);
+
                 loadingBar = new ProgressDialog(this);
 
 
@@ -99,6 +101,13 @@ public class FuelActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                                 ValidateFuelData();
+                        }
+                });
+
+                remove.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                retrieveData();
                         }
                 });
 
@@ -206,7 +215,6 @@ public class FuelActivity extends AppCompatActivity {
                                 {
                                         VehicleReg = item.child("Vehicle Reg").getValue(String.class);
                                         spinnerDataList.add(VehicleReg);
-                                        item.getRef().removeValue();
                                 }
                                 adapter.notifyDataSetChanged();
 

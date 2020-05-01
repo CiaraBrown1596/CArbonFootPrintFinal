@@ -40,6 +40,7 @@ public class SaveBarcode extends AppCompatActivity
     private EditText InputProductName, InputProductDescription;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
+    private ImageView logoVeh;
     private String productRandomKey, downloadImageUrl;
     private StorageReference ProductImagesRef;
     private DatabaseReference ProductsRef;
@@ -67,7 +68,16 @@ public class SaveBarcode extends AppCompatActivity
 
         loadingBar = new ProgressDialog(this);
 
+        logoVeh = findViewById(R.id.app_logo);
+        logoVeh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SaveBarcode.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
 
+            }
+        });
 
 
         InputProductImage.setOnClickListener(new View.OnClickListener() {

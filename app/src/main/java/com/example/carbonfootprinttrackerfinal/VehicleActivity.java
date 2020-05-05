@@ -162,12 +162,12 @@ public class VehicleActivity extends AppCompatActivity {
     private void SaveFlightInfoToDatabase()
     {
         HashMap<String, Object> vehicleMap = new HashMap<>();
-        vehicleMap.put("Vehicle Reg", VehiclesReg);
-        vehicleMap.put("date", saveCurrentDate);
-        vehicleMap.put("time", saveCurrentTime);
-        vehicleMap.put("Liters Used", VehiclesLiters);
+        vehicleMap.put("VehicleReg", VehiclesReg);
+        vehicleMap.put("Date", saveCurrentDate);
+        vehicleMap.put("Time", saveCurrentTime);
+        vehicleMap.put("LitersUsed", VehiclesLiters);
         vehicleMap.put("Description", VehiclesDescription);
-        vehicleMap.put("Vehicle Emissions", VehiclesEmissions);
+        vehicleMap.put("VehicleEmissions", VehiclesEmissions);
 
         VehicleReff.child(vehicleRandomKey).updateChildren(vehicleMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

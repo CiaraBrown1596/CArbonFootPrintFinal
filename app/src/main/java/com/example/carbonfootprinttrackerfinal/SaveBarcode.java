@@ -151,7 +151,7 @@ public class SaveBarcode extends AppCompatActivity
     private void StoreBarcodeInformation()
     {
         loadingBar.setTitle("Add New Barcode");
-        loadingBar.setMessage("Dear Admin, please wait while we are adding the new barcode.");
+        loadingBar.setMessage("Please wait while we are adding the new barcode.");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
 

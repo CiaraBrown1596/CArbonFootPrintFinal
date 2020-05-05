@@ -3,55 +3,77 @@ package com.example.carbonfootprinttrackerfinal;
 
 
 public class Vehicle {
-    private String regNumber;
-    private String type;
-    private double mileage;
-    private  String vehicleEmissions;
+    private String VehicleReg;
+    private String Description;
+    private String LitersUsed;
+    private String VehicleEmissions;
+    private String Date;
+    private String Time;
 
     public Vehicle(){}
 
-    public Vehicle(String id, String regNumber, int litres, String type, String vehicleEmissions) {
+    public Vehicle(String id, String VehicleReg, String LitersUsed, String Description, String VehicleEmissions,String date, String time) {
 
     }
 
-    public Vehicle(String regNumber, String type, double mileage, String vehicleEmissions) {
+    public Vehicle(String VehicleReg, String Description, String LitersUsed, String VehicleEmissions, String Date, String Time) {
         super();
-        this.regNumber = regNumber;
-        this.type = type;
-        this.mileage = mileage;
-        this.vehicleEmissions = vehicleEmissions;
+        this.VehicleReg = VehicleReg;
+        this.Description = Description;
+        this.LitersUsed = LitersUsed;
+        this.VehicleEmissions = VehicleEmissions;
+        this.Date = Date;
+        this.Time = Time;
     }
 
-    public String getRegNumber() {
-        return regNumber;
+    public String getVehicleReg() {
+        return VehicleReg;
     }
 
-    public void setRegNumber(String regNumber) {
-        this.regNumber = regNumber;
+    public void setVehicleReg(String VehicleReg) {
+        this.VehicleReg = VehicleReg;
     }
 
-    public String getType() {
-        return type;
+    public String getDescription() {
+        return Description;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
-    public double getMileage() {
-        return mileage;
+    public String getLitersUsed() {
+        return LitersUsed;
     }
 
-    public void setMileage(double mileage) {
-        this.mileage = mileage;
+    public void setLitersUsed(String LitersUsed) {
+        this.LitersUsed = LitersUsed;
     }
 
     public String getVehicleEmissions() {
-        return vehicleEmissions;
+        return VehicleEmissions;
     }
 
-    public void setVehicleEmissions(String vehicleEmissions) {
-        this.vehicleEmissions = vehicleEmissions;
+    public void setVehicleEmissions(String VehicleEmissions) {
+        this.VehicleEmissions = VehicleEmissions;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public Vehicle setDate(String date) {
+        Date = date;
+        return this;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public Vehicle setTime(String time) {
+        Time = time;
+        return this;
     }
 }
 

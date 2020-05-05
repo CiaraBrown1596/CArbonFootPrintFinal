@@ -119,8 +119,8 @@
             android:id="@+id/AddFuel"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_fuel"
-            android:tooltipText="Add Fuel" />
+            android:src="@drawable/ic_file"
+            android:tooltipText="View Vehicles" />
 
     </LinearLayout>
 

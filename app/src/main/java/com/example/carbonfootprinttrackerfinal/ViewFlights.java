@@ -37,21 +37,21 @@ public class ViewFlights extends AppCompatActivity {
             @Override
             protected void populateView(View v, Object model, int position) {
                 TextView FlightID = v.findViewById(R.id.ViewFligthID);
-                TextView Aircraft = v.findViewById(R.id.ViewFlightAircraft);
-                TextView Distance  = v.findViewById(R.id.ViewFlightDistance);
+                TextView Aircraft = v.findViewById(Integer.parseInt(String.valueOf(R.id.ViewFlightAircraft)));
+                TextView Distance  = v.findViewById(Integer.parseInt(String.valueOf(R.id.ViewFlightDistance)));
                 TextView FlightEmisions = v.findViewById(R.id.ViewFLightEmissions);
                 TextView FlightSeat = v.findViewById(R.id.ViewFlightSeat);
                 TextView Time  = v.findViewById(R.id.ViewFlightTime);
-                TextView Date = v.findViewById(R.id.ViewFlightTime);
+                TextView Date = v.findViewById(R.id.ViewFLightDate);
 
                 Flight flight = (Flight) model;
-                FlightID.setText("Flight ID : " + flight.getFlightID());
-                Aircraft.setText("Flight Aircraft : "+ flight.getAircraft());
-                Distance.setText("Flight Distance : "+ flight.getDistance());
-                FlightEmisions.setText("Flight Emissions : "+flight.getEmissionPerPassenger());
-                FlightSeat.setText("Seat: " + flight.getSeat());
-                Time.setText("Time of Entry : " + flight.getTime());
-                Date.setText("Date of Entry :" + flight.getDate());
+                FlightID.setText("FlightID: " + flight.getFlightID());
+                Aircraft.setText("Flight Aircraft:"+ flight.getAircraft());
+                Distance.setText("Flight Distance:"+ flight.getDistance());
+                FlightEmisions.setText("Flight Emissions:"+ flight.getFlightEmissions());
+                FlightSeat.setText("Seat:" + flight.getSeat());
+                Time.setText("Time of Entry:" + flight.getTime());
+                Date.setText("Date of Entry:" + flight.getDate());
             }
         };
         lv.setAdapter(myAdapter);

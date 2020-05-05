@@ -11,19 +11,19 @@ public class Flight{
     private String seat;
     private String date;
     private String Distance;
-    private String time;
-    private String emissionPerPassenger;
+    private String Time;
+    private String flightEmissions;
     
     public Flight(){}
 
 
-    public Flight(String flightID, String aircraft, String seat, String date, String time, String emissionPerPassenger){
+    public Flight(String flightID, String aircraft, String seat, String date, String Time, String flightEmissions){
         this.flightID = flightID;
        this.Aircraft = aircraft;
         this.seat = seat;
         this.date = date;
-        this.time = time;
-        this.emissionPerPassenger = emissionPerPassenger;
+        this.Time = Time;
+        this.flightEmissions = flightEmissions;
 
     }
 
@@ -64,19 +64,19 @@ public class Flight{
     }
 
     public String getTime() {
-        return time;
+        return Time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(String Time) {
+        this.Time = Time;
     }
 
-    public String getEmissionPerPassenger() {
-        return emissionPerPassenger;
+    public String getFlightEmissions() {
+        return flightEmissions;
     }
 
-    public void setEmissionPerPassenger(String emissionPerPassenger) {
-        this.emissionPerPassenger = emissionPerPassenger;
+    public void setFlightEmissions(String flightEmissions) {
+        this.flightEmissions = flightEmissions;
     }
 
     public String getDistance() {

@@ -316,8 +316,8 @@ public class FlightActivity extends AppCompatActivity {
     {
         HashMap<String, Object> flightMap = new HashMap<>();
         flightMap.put("FlightID", FlightID);
-        flightMap.put("date", saveCurrentDate);
-        flightMap.put("time", saveCurrentTime);
+        flightMap.put("Date", saveCurrentDate);
+        flightMap.put("Time", saveCurrentTime);
         flightMap.put("Aircraft", FlightAircraft);
         flightMap.put("Distance", FlightDistance);
         flightMap.put("Seat", FlightSeat);

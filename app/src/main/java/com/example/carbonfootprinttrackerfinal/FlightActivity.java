@@ -321,7 +321,7 @@ public class FlightActivity extends AppCompatActivity {
         flightMap.put("Aircraft", FlightAircraft);
         flightMap.put("Distance", FlightDistance);
         flightMap.put("Seat", FlightSeat);
-        flightMap.put("Flight Emissions",totalEmissions);
+        flightMap.put("FlightEmissions",totalEmissions);
 
         FlightReff.child(flightRandomKey).updateChildren(flightMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.carbonfootprinttrackerfinal.ViewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/layoutview"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/app_logoView"
+        android:src="@drawable/ic"
+        android:cropToPadding="true"
+        android:paddingBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Linear1_CategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ViewVehicles"
+            android:tooltipText="View all Vehicles"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_vehicles"/>
+
+        <ImageView
+            android:id="@+id/ViewFlight"
+            android:layout_width="150dp"
+            android:tooltipText="View all Flights"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_flight"/>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -7,30 +7,24 @@ import java.util.Date;
 
 public class Flight{
     private String flightID;
-    private String departure;
-    private String destination;
-    private String ticket;
+    private String Aircraft;
+    private String seat;
     private String date;
+    private String Distance;
     private String time;
     private String emissionPerPassenger;
-    private String totalFlightEmissions;
     
     public Flight(){}
 
 
-    public Flight(String id, String ID, Double type, Double aircraftType, String aClass, String emissionPerPassenger,String totalFlightEmissions){
-
-    }
-
-    public Flight(String flightID, String departure, String destination, String ticket, String date, String time, String emissionPerPassenger,String totalFlightEmissions){
+    public Flight(String flightID, String aircraft, String seat, String date, String time, String emissionPerPassenger){
         this.flightID = flightID;
-        this.departure = departure;
-        this.destination = destination;
-        this.ticket = ticket;
+       this.Aircraft = aircraft;
+        this.seat = seat;
         this.date = date;
         this.time = time;
         this.emissionPerPassenger = emissionPerPassenger;
-        this.totalFlightEmissions = totalFlightEmissions;
+
     }
 
     public Flight(String id, String id1, Double type, Double aircraftType, String aClass, Double emissions) {
@@ -44,28 +38,21 @@ public class Flight{
         this.flightID = flightID;
     }
 
-    public String getDeparture() {
-        return departure;
+    public String getAircraft() {
+        return Aircraft;
     }
 
-    public void setDeparture(String departure) {
-        this.departure = departure;
+    public Flight setAircraft(String aircraft) {
+        Aircraft = aircraft;
+        return this;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getSeat() {
+        return seat;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public String getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
+    public void setSeat(String ticket) {
+        this.seat = ticket;
     }
 
     public String getDate() {
@@ -92,12 +79,12 @@ public class Flight{
         this.emissionPerPassenger = emissionPerPassenger;
     }
 
-    public String getTotalFlightEmissions() {
-        return totalFlightEmissions;
+    public String getDistance() {
+        return Distance;
     }
 
-    public Flight setTotalFlightEmissions(String totalFlightEmissions) {
-        this.totalFlightEmissions = totalFlightEmissions;
+    public Flight setDistance(String distance) {
+        Distance = distance;
         return this;
     }
 }

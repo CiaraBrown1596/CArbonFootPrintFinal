@@ -59,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         addfuel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ViewVehicles.class);
+                Intent intent = new Intent(HomeActivity.this, ViewActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
